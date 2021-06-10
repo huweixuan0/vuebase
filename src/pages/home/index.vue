@@ -5,9 +5,12 @@
 </template>
 
 <script>
+
 export default {
   created(){
-    // console.log(window.config.ip)
+   this.$apis.login({username:"E01956",password:"EE01956"}).then(res=>{
+      console.log(res)
+    })
   }
 }
 </script>

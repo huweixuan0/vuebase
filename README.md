@@ -27,5 +27,23 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ## 1.iis 打包后js文件访问不到 http://10.51.80.226/static/js/manifest.2ae2e69a05c33dfc65f8.js 404 not found  do: config/index.js  修改：assetsPublicPath: '/',为assetsPublicPath: './',
 
 ## 2.写登陆
-### 0>mock模拟接口地址
-### 1>封装axios请求
+### 0>封装axios请求 /src/common/http/http.js
+### 1>管理API接口   /src/common/http/api.js
+### 1>mock模拟接口地址 安装mock.js npm install mockjs --save-dev  通过mockjs，模拟restfu规范的api接口。
+#### 成功返回数据Like：
+
+    {
+	"code": 200,
+	"msg": "登陆成功，token返回成功",
+	"data": {
+		"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJVc2VyTmFtZSI6IkUwMTk1NiIsImlhdCI6MTYyMzMwMjgxMSwiZXhwIjoxNjIzMzEwMDExLCJFTWFpbCI6IiIsIlVzZXJJZCI6IuiDoee7tOi9qSIsIkRlcGFydG1lbnQiOiJGQSIsIk1vZHVsZSI6IkZBIiwiUm9sZSI6IklUIiwiUG93ZXIiOjUsIlBhc3N3b3JkIjoiIiwiSFJfTWFpbE5hbWUiOiJodXdlaXh1YW4iLCJIUl9QV0QiOiJFMDE5NTYiLCJIUl9EZXBhcnRtZW50IjoiUEI4MSIsIkhSX1N1YkRlcGFydCI6IjAxIn0.I-pA1l8z28dXZuGlOFUl7CWfwO7EEJgGYwsFTvNPlns"
+	}
+}
+
+#### 错误返回数据
+
+    {
+	"code": 101,
+	"msg": "登陆失败",
+	"data": null
+}

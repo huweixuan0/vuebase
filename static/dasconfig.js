@@ -1,5 +1,5 @@
 window.config = {
-    ip: '1.2.3.4',
+    ip: 'http://localhost:58643/api',
     port: 9000,
     dbSourceApi: 'api/DbSourceManage',
     jobMetaApi: 'api/JobMetaManage'
