@@ -5,19 +5,26 @@ import App from './App'
 import router from './router'
 
 Vue.config.productionTip = false
-//挂载统一的api接口和request请求方法
+
+
 
 //引入mock.js
 import mock from './common/mock/mock';
+//挂载统一的api接口和request请求方法
 import {request} from './common/http/http';
 import * as apis from './common/api/api';
 Vue.prototype.$apis = apis;
 Vue.prototype.$https = request;
 
+//引入vuex
+
+import store from './common/vuex/vuex';
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

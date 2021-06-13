@@ -47,3 +47,6 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 	"msg": "登陆失败",
 	"data": null
 }
+#### 登陆逻辑：1.登陆接口，登陆后保存token，并跳转到home；2.home携带token请求获取用户信息；3.路由，刷新重新保存token，根据是否有token做路由守卫。
+
+## 3.使用sass

@@ -13,4 +13,4 @@ export const login = data => request('post','/auth/login', data)
 
 //获取用户信息
 
-export const getUserInfo = () => request('get','/auth/token', data)
+export const getUserInfo = () => request('get','/auth/token',null)

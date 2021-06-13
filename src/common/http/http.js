@@ -3,13 +3,17 @@
 // # 
 
 import axios from 'axios'
-console.log(window.config.ip)
+import store from '@/common/vuex/vuex'
+// console.log(window.config.ip)
 var vHttp = axios.create({
     baseURL:window.config.ip
 })
 
 vHttp.interceptors.request.use(config => { // 请求拦截器配置 // 可不配置
     // do sth
+      if(store.state.token){
+        config.headers['ApiAuthorization']=store.state.token
+        }
     return config
 }, error => {
     console.log(error)

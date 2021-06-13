@@ -15,9 +15,22 @@ export default {
       password:""
     }
   },
+  create(){
+  },
   methods: {
     loginHandler() {
-      console.log(1)
+      this.$apis.login({username:this.username,password:this.password}).then(res=>{
+        console.log(res)
+        if(res.code==200){
+        console.log("登陆成功")
+        
+      this.$store.commit("set_token", res.data.token);
+      this.$router.push({
+        path:"/"
+      })
+        }
+      
+    })
     }
   },
 }

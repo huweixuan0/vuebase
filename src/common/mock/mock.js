@@ -10,7 +10,8 @@ const mocklist = []
 const count = 5;
 
 const _api ={
-  login:"http://localhost:8080/api/auth/login"
+  login:"http://localhost:8080/api/auth/login",
+  token:"http://localhost:8080/api/auth/token",
 }
 
 
@@ -42,7 +43,7 @@ function MsgErr(msg,obj){
     data:obj
   }
 }
-
+//登陆验证，返回token
 function Login(options){
   console.log(11111,options)
   if(JSON.parse(options.body).password == "EE01956"){
@@ -52,6 +53,40 @@ function Login(options){
   }else{
     return MsgErr("登陆失败",null)
   }
+}
+
+// Department: "FA"
+// EMail: ""
+// HR_Department: "PB81"
+// HR_MailName: "huweixuan"
+// HR_PWD: "E01956"
+// HR_SubDepart: "01"
+// Module: "FA"
+// Password: ""
+// Power: 5
+// Role: "IT"
+// Roles: null
+// UserId: "胡维轩"
+// UserName: "E01956"
+//获取用户信息
+
+function getUsf(options){
+  console.log(options)
+  return MsgSuc("success",Mock.mock({
+    "Department|1-2": "FA",
+    EMail: "",
+    HR_Department: "PB81",
+    HR_MailName: "huweixuan",
+    HR_PWD: "E01956",
+    HR_SubDepart: "01",
+    Module: "FA",
+    Password: "",
+    Power: 5,
+    Role: "IT",
+    Roles: null,
+    UserId: "胡维轩",
+    UserName: "E01956"
+  }))
 }
 
 
@@ -119,6 +154,7 @@ function updateUser(options) {
 
 
 Mock.mock(_api.login,'post',Login)
+Mock.mock(_api.token,'get',getUsf)
 // 制作各个接口
 Mock.mock('http://localhost:8080/getlist', 'get', getList)
 //Mock.mock('/getuser', 'post', getUser)

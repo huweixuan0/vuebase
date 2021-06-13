@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navigation />
+    <navigation v-if="!$route.meta.showNav" />
     <router-view/>
   </div>
 </template>
@@ -9,19 +9,17 @@ import navigation from './components/navigation/index.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      showNav: false
+    }
+  },
    components: {
     navigation
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" >
+@import './assets/styles/index.scss';
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div>
       home
+      <button @click="Signout">退出登录</button>
   </div>
 </template>
 
@@ -8,10 +9,21 @@
 
 export default {
   created(){
-   this.$apis.login({username:"E01956",password:"EE01956"}).then(res=>{
+    this.$apis.getUserInfo().then(res=>{
       console.log(res)
     })
+   console.log("home")
+  },
+  methods:{
+    Signout(){
+      this.$store.commit("del_token")
+      this.$router.push({
+        path:"/login"
+      })
+    }
   }
+
+  
 }
 </script>
 
